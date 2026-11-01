@@ -119,10 +119,6 @@ Example input:
 pytest -q
 ```
 
-## Suggested CV description (only after running and verifying the project)
-
-**Prototype de surveillance conditionnelle d'un système de pompage (données simulées)** – Développement d'une chaîne de monitoring intégrant génération de télémétrie, apprentissage d'un modèle Random Forest sur des scénarios synthétiques, API FastAPI, stockage SQLite et tableau de bord Streamlit pour l'analyse des vibrations, de la température, du courant, du débit et de la pression.
-
 ## Engineering notes
 
 - The synthetic fault patterns are educational abstractions and are not specific to a real pump or manufacturer.
