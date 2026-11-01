@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    command: uvicorn pump_monitoring.api:app --host 0.0.0.0 --port 8001
+    environment:
+      PUMP_DB_PATH: /app/data/pump_monitor.db
+      PUMP_MODEL_PATH: /app/models/pump_fault_classifier.joblib
+    ports:
+      - "8001:8001"
+    volumes:
+      - pump-data:/app/data
+  dashboard:
+    build: .
+    command: streamlit run pump_monitoring/dashboard.py --server.address 0.0.0.0 --server.port 8502
+    environment:
+      PUMP_API_URL: http://api:8001
+    ports:
+      - "8502:8502"
+    depends_on:
+      - api
+volumes:
+  pump-data:
